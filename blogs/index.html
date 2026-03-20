@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>sams331's Blog | Blogs</title>
+	<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+	<header>
+	<h1><span class="sams331">sams331</span>'s Blog</h1>
+	</header>
+	<blog-container>
+	    <blog-grid>
+        <!-- Card 1 -->
+        <blog-card>
+            <blog-image><img src="placeholder.jpg"></blog-image>
+            <blog-info>
+                <blog-tag>Misc</blog-tag>
+                <blog-name>There is nothing here yet. | <span class="date">20/3/2026</span></blog-name>
+                <blog-excerpt>Emptiness is hypothetical. There is no such thing as emptiness. Even if there's a room with nothing, there's still air.</blog-excerpt>
+                <blog-action onclick="window.location.href='/'">Read</blog-action>
+            </blog-info>
+        </blog-card>
+
+        <!-- Card 2 -->
+        <blog-card>
+            <blog-image><img src="placeholder.jpg"></blog-image>
+            <blog-info>
+                <blog-tag>Misc</blog-tag>
+                <blog-name>There is nothing here yet. | <span class="date">20/3/2026</span></blog-name>
+                <blog-excerpt>Even if you vacuum a room so there's no air, there's still the room. There can't be nothing in there.</blog-excerpt>
+                <blog-action onclick="window.location.href='/'">Read</blog-action>
+            </blog-info>
+        </blog-card>
+    </blog-grid>
+    </blog-container>
+		<footer-main-container>
+		<footer-tagline>
+			<p>The world of a curious mind in a site.</p>
+		</footer-tagline>
+		<footer-links>
+			<a class="footer-link" href="/">Home page</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://sams331.github.io/">Personal Page</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://github.com/sams331">Github</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://discord.com/users/971970343675760650">Discord</a>
+		</footer-links>
+		<footer-copyright>
+			<p>&copy; <span id="yr"></span> sams331. All rights reserved.</p>
+		</footer-copyright>
+	</footer-main-container>
+	<script>
+	let year = document.getElementById('yr')
+	year.textContent = new Date().getFullYear()
+	</script>
+</body>
+</html>

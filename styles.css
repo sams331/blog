@@ -1,0 +1,296 @@
+@import url('https://googleapis.com');
+
+html {
+	font-family: "Montserrat", sans-serif;
+	color: white;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+    background-color: #0F0F0F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;        
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    position: fixed;
+    top: 0;            /* Menempel ke paling atas */
+    left: 0;           /* Menempel ke kiri */
+    z-index: 100;
+    background: #222222;
+    border-bottom: 2px solid #333333;
+    padding: 0 40px; /* Memberi jarak dari kiri & kanan */
+}
+
+mainpage-content {
+    width: 80vw;
+    min-height: 80vh; /* Gunakan min-height agar bisa memanjang jika konten penuh */
+    background-color: #111;
+    border: 1px solid #222;
+    border-radius: 30px;
+    margin: 120px 0 60px 0; /* Jarak atas (agar tidak nabrak header) dan bawah */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Ruang dalam agar teks tidak mepet pinggir kotak */
+    box-sizing: border-box;
+    gap: 50px;
+}
+
+/* Judul Besar */
+h1.welcome {
+    font-size: clamp(2rem, 10vw, 5rem);
+    margin: 0;
+    color: #ffffff;
+}
+
+p.welcome {
+    font-size: 1.5rem;
+    color: #a0a0a0;
+    margin-top: 10px;
+}
+
+button.wlcm {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button.wlcm:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-3px);
+}
+
+span.sams331 {
+	font-weight: 900;
+    letter-spacing: 1px;
+    color: #3d5afe; 
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+    transition: 0.3s;
+}
+
+
+span.sams331:hover {
+    text-shadow: 0 0 25px rgba(0, 245, 255, 0.6);
+    filter: brightness(1.2);
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Memastikan semua anak elemen di tengah */
+    text-align: center;
+}
+
+.typewriter {
+    display: block;
+    width: 12ch; /* Sesuai jumlah karakter "sams331_logs" */
+    margin: 0 auto 20px auto; /* Margin auto kiri-kanan agar tetap di tengah */
+    overflow: hidden; 
+    white-space: nowrap; 
+    border-right: 3px solid #4FD1C5; 
+    font-size: 5rem; 
+    font-weight: 900;
+    letter-spacing: 0;
+    
+    /* Tambahkan ini agar teks ngetik dari tengah */
+    text-align: center; 
+
+    animation: 
+      typing 2s steps(12, end), 
+      blink-caret .75s step-end 5 forwards;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 12ch }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #4FD1C5; }
+}
+
+
+footer-main-container {
+    width: 100%;             /* Pastikan selebar layar */
+    padding: 60px 0;         /* Beri ruang atas dan bawah */
+    background-color: #0a0a0a; 
+    border-top: 1px solid #1a1a1a;
+    display: block;          /* Menghindari konflik flexbox dari body */
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer-tagline {
+    color: #666;             /* Warna abu-abu yang lebih soft */
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+footer-links {
+    display: flex;           /* Berjejer horizontal */
+    justify-content: center; /* Center secara horizontal */
+    gap: 30px;               /* Jarak antar link yang pas */
+    margin-bottom: 30px;
+    flex-direction: row;
+}
+
+@media (max-width: 430px) {
+	footer-links {
+		flex-direction: column;
+	}
+}
+
+a.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+a.footer-link:hover {
+    opacity: 1;
+    color: #4FD1C5;
+}
+
+footer-copyright {
+    color: #444;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+blog-container blog-grid, blog-card, 
+blog-image, blog-info, blog-tag, blog-name, blog-excerpt, blog-action {
+    display: block; 
+    box-sizing: border-box;
+    text-align: left; /* Pastikan teks nggak lari ke tengah */
+}
+
+blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 280px lebih aman untuk HP kecil */
+    gap: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+blog-container {
+    max-width: 1000px;
+    width: 100%; /* Pastikan selebar layar */
+    margin: 40px auto;
+    padding: 0 20px; /* Padding kecil agar tidak mepet layar HP */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Mencegah side-scroll */
+}
+}
+
+blog-card {
+    background-color: #111;
+    border: 1px solid #222;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+blog-card:hover {
+    border-color: #4FD1C5;
+    transform: translateY(-8px);
+}
+
+blog-image {
+    height: 220px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle blue glow effect */
+blog-image::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(79, 209, 197, 0.1) 0%, transparent 70%);
+    top: -50px;
+    right: -50px;
+}
+
+}
+
+blog-info {
+    padding: 30px;
+}
+
+blog-tag {
+    color: #4FD1C5;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+blog-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+blog-excerpt {
+    color: #888;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+span.date {
+    color: #555;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+blog-action {
+    width: max-content;
+    color: white;
+    font-weight: 600;
+    border-bottom: 2px solid #4FD1C5;
+    cursor: pointer;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+blog-action:hover {
+    color: #4FD1C5;
+}

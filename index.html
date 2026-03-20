@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>sams331's Blog</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+	<h1><span class="sams331">sams331</span>'s Blog</h1>
+	</header>
+	<mainpage-content>
+		<h1 class="welcome typewriter">sams331_logs</h1>
+		<p class="welcome">The footprints of a curious mind on the Internet.</p>
+		<button class="wlcm" onclick="window.location.href='blogs'">Let's go!</button>
+	</mainpage-content>
+	<footer-main-container>
+		<footer-tagline>
+			<p>The world of a curious mind in a site.</p>
+		</footer-tagline>
+		<footer-links>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://sams331.github.io/">Personal Page</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://github.com/sams331">Github</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://discord.com/users/971970343675760650">Discord</a>
+		</footer-links>
+		<footer-copyright>
+			<p>&copy; <span id="yr"></span> sams331. All rights reserved.</p>
+		</footer-copyright>
+	</footer-main-container>
+	<script>
+	let year = document.getElementById('yr')
+	year.textContent = new Date().getFullYear()
+	</script>
+</body>
+</html>
