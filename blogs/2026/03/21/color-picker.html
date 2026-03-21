@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Picker | sams331's Blog</title>
+	<link rel="stylesheet" href="../../../../styles.css">
+</head>
+<body>
+	<header>
+	<h1><span class="sams331">sams331</span>'s Blog</h1>
+	</header>
+	
+	<post-container>
+    <post-header>
+        <post-tag>Technology</post-tag>
+        <post-title>Color Picker</post-title>
+        <post-meta>March 21, 2026 | sams331</post-meta>
+    </post-header>
+
+    <post-hero>
+        <!-- Gunakan salah satu placeholder image tadi -->
+        <img src="featured-image.jpg" alt="Hero Image">
+    </post-hero>
+
+    <post-content>
+		<p>If you don't wanna read this and just jump straight into the color picker, click <a href="#color-picker">here</a>.</p>
+        <p>Have you ever wondered when you see color hex codes, and some six-letter hexadecimal value makes colors, how does that work? In this blog, I will explain to you not just color hex codes, but also RGB color values.</p>
+        
+        <h2>How computers emit colors</h2>
+        <p>If we take a look at our screen right now, if we zoom in until individual pixels, you would see that those individual pixels do not have the colors on their own. An individual pixel consists of three sub-pixels, which emit the color <span style="color: red;">red</span>, <span style="color: green;">green</span>, and <span style="color: blue;">blue</span>. Then, those individual pixels will emit colors based on the instructions on each sub-pixels on how much on this sub-pixel will be emitted. For example, when you see the color <span style="color: blue">blue</span>, you're seeing the red and green subpixel getting cut off/turned off and only the blue subpixel lighting up. That's why you see the color blue.</p>
+        <h2>How <b>humans</b> perceive colors</h2>
+        <blockquote>
+			🤓 umm why exactly <span style="color: red;">red</span>, <span style="color: green;">green</span>, and <span style="color: blue;">blue</span>?
+        </blockquote>
+        <p>For this case, we go back to our human eye. </p>
+        <img src="https://www.xrite.com/-/media/modules/weblog/blog/color-perception-part-3-the-tricks-the-environment-plays-on-our-eyes/eyeballjpg.jpg">
+        <post-meta>Source: <a href="https://www.xrite.com/">https://www.xrite.com/</a></post-meta>
+        <p>Our eyes has 3 color receptors, which perceive the color red, green, and blue. When we see something, it's actually a light reflection of that something, and when it hit our color receptors, it will send how intense is that color to our brain. And then, our brain processes it to an image, and that's what we see everyday. So, in reality, you're not seeing something, you're seeing the reflection of something.</p>
+        <p>And that's why screens have three colors which are red, green, and blue as its subpixels. Screens just have to set how intense each subpixels are, produce the light, and when it hit a human's color receptor, it will look like a whole new color.</p>
+        <h2>How color values/codes works</h2>
+        <blockquote>
+			🤓 umm how does the computer know set the intensity of subpixels?
+        </blockquote>
+        <p>And that's where color values comes in. There are two color value format (that we are going to talk about in this blog), which is hex code and RGB value.</p>
+        <p>Hex code looks like: <span style="color: #1c71d8;">#1c71d8</span>, and</p>
+        <p>RGB code looks like: <span style="color: rgb(28, 113, 216);">rgb(28, 113, 216)</span>.</p>
+        <p>Hex color codes gives out color datas by using hexadecimal values. Computers will read it by dividing the code into three parts. For example, #1c71d8 will be 1c, 71, and d8. Those are the intensity of the color red, green, and blue in order. 1c means the intensity of red is 28. 71 means the intensity of green is 113, and so on.</p>
+        <p>On the other hand, RGB color codes just explicitly tells the intensity of the colors using decimal numbers. So, rgb(28, 113, 216) is pretty self-explainatory. 28 means the intensity of red, and so on.</p>
+        <p>Color intensity goes until 255 (or <code>ff</code> in hexadecimal value) and the lowest possible value is 0. So, if you see #ffffff or rgb(255, 255, 255), it means that all subpixels are in maximum intensity. It will make your brain perceive white. On the other hand, if you see #000000 or rgb(0, 0, 0) it means black. All subpixels are in minimum intensity, which means there is no light passing through, making humans see black.</p>
+        <p>After this is an actual color picker where you can interact and get colors with:</p>
+<color-playground id="color-picker">
+    <div class="picker-container">
+        <!-- Input ini yang memicu perubahan -->
+        <input type="color" id="colorPicker" value="#4FD1C5">
+        
+        <div class="picker-info">
+            <span id="hexValue">#4FD1C5</span>
+            <span id="rgbValue" class="secondary-code">rgb(79, 209, 197)</span>
+            <button class="copy-btn" onclick="copyHex()">Copy Hex</button>
+            <button class="copy-btn" onclick="copyRGB()">Copy RGB</button>
+        </div>
+    </div>
+    <div id="previewBox"></div>
+</color-playground>
+    </post-content>
+</post-container>
+
+	
+		<footer-main-container>
+		<footer-tagline>
+			<p>The world of a curious mind in a site.</p>
+		</footer-tagline>
+		<footer-links>
+			<a class="footer-link" href="https://sams331.github.io/blog">Home page</a>
+			<a class="footer-link" href="/blogs">Blogs</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://sams331.github.io/">Personal Page</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://github.com/sams331">Github</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://discord.com/users/971970343675760650">Discord</a>
+		</footer-links>
+		<footer-copyright>
+			<p>&copy; <span id="yr"></span> sams331. All rights reserved.</p>
+		</footer-copyright>
+	</footer-main-container>
+	<script>
+	let year = document.getElementById('yr')
+	year.textContent = new Date().getFullYear()
+	</script>
+	<script src="color-picker.js">
+		
+	</script>
+</body>
+</html>
