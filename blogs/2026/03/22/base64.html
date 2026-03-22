@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Picker | sams331's Blog</title>
+	<link rel="stylesheet" href="../../../../styles.css">
+</head>
+<body>
+	<header>
+	<h1><span class="sams331">sams331</span>'s Blog</h1>
+	</header>
+	
+	<post-container>
+    <post-header>
+        <post-tag>Technology</post-tag>
+        <post-title>About Base64</post-title>
+        <post-meta>March 22, 2026 | sams331</post-meta>
+    </post-header>
+
+    <post-hero>
+        <img src="featured-image.jpg" alt="Hero Image">
+    </post-hero>
+
+    <post-content>
+		<p>If you want to jump straight into the base64 encoder/decoder, go to <a href="#decoderencoder">here</a>.</p>
+		
+		<p>According to Wikipedia, A binary-to-text encoding is a data encoding scheme that represents binary data as plain text. Generally, the binary data consists of a sequence of arbitrary 8-bit byte (a.k.a. octet) values and the text is restricted to the printable character codes of commonly-used character encodings such as ASCII. In general, arbitrary binary data contains values that are not printable character codes, so software designed to only handle text fails to process such data. Encoding binary data as text allows information that is not inherently stored as text to be processed by software that otherwise cannot process arbitrary binary data. The software cannot interpret the information, but it can perform useful operations on the data such as transmit and store. <post-meta>Source: <a href="https://en.wikipedia.org/wiki/Binary-to-text_encoding">https://en.wikipedia.org/wiki/Binary-to-text_encoding</a></post-meta></p>
+		<p>Base64 is one of the binary-to-text encoding. Even though a base64 data looks random, it's not a way to pass secret datas or to make your data secure, as it's easily decodable. (I mean just look at the Internet, there are so many base64 encoder/decoder out there) Base64 works by using 64 printable characters to represent each 6-bit segment of a sequence of byte. (Hence, the name base<b>64</b>) Base64 uses the characters from A-Z, a-z, 0-9, + and /. The = sign is used for padding, to make sure the length is a multiple of four characters.</p>
+		<blockquote>🤓 umm why multiple of 4?</blockquote>
+		<p>Base64 uses a multiple of 4 because it's the smallest common ground between 8-bit data (bytes) and 6-bit Base64 characters. Computer data is stored in 8 bits, or what we can call a byte. Base64 uses 64 characters, which means each character represents 6 bits. (2^6=64) To make these two line up perfectly without leaving "half-finished" bytes, you need a total bit count that is divisible by both 6 and 8, which is 24 bits. To make that 24-bit block, you take 3 bytes of data (3*8=24 bits) and convert them into Base64 characters. (4*6=24 bits) Because the conversion always works in these 24-bit chunks, the output string length must naturally be a multiple of 4.</p>
+		<p>So, if the data isn't exactly 3, 6, or 9 bytes, you have leftover bits. This is where the padding (=) comes in, to "fill the gap" until the string reaches the next multiple of 4.</p>
+		<ul>
+			<li>1 byte: 8 bits: 2 base64 chars (12 bits): 2 padding needed: XX==</li>
+			<li>2 byte: 16 bits: 3 base64 chars (18 bits): 1 padding needed: XXX=</li>
+			<li>3 byte: 24 bits: 4 base64 chars (24 bits): 0 padding needed: XXXX</li>
+		</ul>
+		<post-meta>* X represents base64 data</post-meta>
+		<br>
+		<p>If you were wondering why if you encode base64 and got equal signs (<code>=</code>), now you know!</p>
+		<p>This is a base64 encoder and decoder, if you want to experiment with stuff then use it.</p>
+		
+<base64-converter id="decoderencoder">
+    <div class="converter-layout">
+        <div class="converter-box">
+            <label>Plain Text (Raw)</label>
+            <textarea id="textInput" placeholder="Plain text goes here..."></textarea>
+            <div class="box-actions">
+                <button onclick="encodeText()">Encode to Base64 ↓</button>
+            </div>
+        </div>
+
+        <div class="converter-box">
+            <label>Base64 String</label>
+            <textarea id="base64Input" placeholder="Base64 goes here..."></textarea>
+            <div class="box-actions">
+                <button onclick="decodeText()" class="alt-btn">Decode to Text ↑</button>
+                <button onclick="copyResult()" class="copy-btn">Copy</button>
+                <button onclick="clearInputs()" class="clr-btn">Clear</button>
+            </div>
+        </div>
+    </div>
+</base64-converter>
+
+
+    </post-content>
+</post-container>
+
+	
+		<footer-main-container>
+		<footer-tagline>
+			<p>The world of a curious mind in a site.</p>
+		</footer-tagline>
+		<footer-links>
+			<a class="footer-link" href="https://sams331.github.io/blog">Home page</a>
+			<a class="footer-link" href="/blog/blogs">Blogs</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://sams331.github.io/">Personal Page</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://github.com/sams331">Github</a>
+			<a class="footer-link" target="_blank" rel="noopener noreferrer" href="https://discord.com/users/971970343675760650">Discord</a>
+		</footer-links>
+		<footer-copyright>
+			<p>&copy; <span id="yr"></span> sams331. All rights reserved.</p>
+		</footer-copyright>
+	</footer-main-container>
+	<script>
+	let year = document.getElementById('yr')
+	year.textContent = new Date().getFullYear()
+	</script>
+	<script src="base64.js">
+		
+	</script>
+</body>
+</html>
