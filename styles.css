@@ -225,7 +225,7 @@ blog-card:hover {
 }
 
 blog-image {
-    height: 220px;
+    height: 320px;
     background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
     border-bottom: 1px solid #222;
     display: flex;
@@ -233,6 +233,11 @@ blog-image {
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+blog-image img {
+	height: 100%;
+	width: 100%;
 }
 
 /* Add a subtle blue glow effect */
@@ -336,7 +341,7 @@ post-meta {
 
 post-hero {
     width: 100%;
-    height: 400px;
+    height: 100%;
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 60px;
